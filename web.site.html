@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>SADCREAM – Streetwear made in Mongolia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-soft: #111111;
+      --text: #ffffff;
+      --muted: #b3b3b3;
+      --accent: #c0c0c0;
+      --border: #292929;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* mobile nav button */
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0.25rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      margin: 4px 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top, #44444444 0, transparent 55%),
+        radial-gradient(circle at bottom, #ffffff11 0, transparent 60%),
+        var(--bg);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 0 3.5rem;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.4rem);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.8rem 1.6rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1px solid var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.1s ease;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+      color: #000;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-art {
+      justify-self: center;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3 / 4;
+      border-radius: 24px;
+      padding: 1.5rem;
+      background:
+        radial-gradient(circle at top, #ffffff15 0, transparent 60%),
+        linear-gradient(145deg, #111111, #000000);
+      border: 1px solid #444444;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(135deg, #ffffff05 25%, transparent 25%),
+        linear-gradient(315deg, #ffffff05 25%, transparent 25%),
+        linear-gradient(135deg, transparent 75%, #ffffff08 75%),
+        linear-gradient(315deg, transparent 75%, #ffffff08 75%);
+      background-size: 36px 36px;
+      mix-blend-mode: screen;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-logo-circle {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
+    }
+
+    .hero-logo-circle span {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #ffffff44;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-card h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 14rem;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #ffffff33;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .hero-drop {
+      text-align: right;
+    }
+
+    .hero-drop strong {
+      display: block;
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    /* ---------- SECTION WRAPPER ---------- */
+
+    section {
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.95rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      max-width: 26rem;
+    }
+
+    /* ---------- SHOP ---------- */
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.75rem;
+    }
+
+    .chip {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .chip.active {
+      border-color: var(--accent);
+      color: var(--text);
+      background: #111111;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .product-card {
+      background: var(--bg-soft);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: #ffffff33;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .product-image {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #ffffff11 0, transparent 60%);
+      aspect-ratio: 3 / 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--accent);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .product-price {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .product-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .product-btn {
+      margin-top: 0.5rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .product-btn:hover {
+      background: #ffffff;
+      color: #000;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .about-highlight {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .about-pill {
+      padding: 0.7rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .about-pill span {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-card {
+      background: var(--bg-soft);
+      border-radius: 18px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-card h3 {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.85rem;
+    }
+
+    .about-timeline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .about-timeline strong {
+      color: var(--accent);
+    }
+
+    /* ---------- VISIT ---------- */
+
+    .visit-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .visit-map {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #050505;
+    }
+
+    .visit-info {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .visit-box {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 0.85rem;
+    }
+
+    .visit-box span {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-form {
+      background: var(--bg-soft);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #050505;
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      margin-top: 0.4rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: #000;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: transparent;
+      color: #fff;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 1.8rem 0 2.2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .about-layout,
+      .visit-layout,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        padding-top: 3rem;
+      }
+
+      .hero-art {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        inset: 64px 0 auto 0;
+        background: rgba(0, 0, 0, 0.98);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-120%);
+        transition: transform 0.2s ease;
+      }
+
+      nav.open {
+        transform: translateY(0%);
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 0.8rem 1.5rem 1rem;
+      }
+
+      .nav-cta {
+        margin: 0.4rem 1.5rem 1rem;
+      }
+
+      .hero {
+        padding-top: 0.4rem;
+      }
+
+      section {
+        padding: 2.2rem 0;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">☠</div>
+        <div>SADCREAM</div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="nav">
+        <ul>
+          <li><a href="#home">Нүүр</a></li>
+          <li><a href="#shop">Дэлгүүр</a></li>
+          <li><a href="#about">Брэнд</a></li>
+          <li><a href="#visit">Байршил</a></li>
+          <li><a href="#contact">Холбогдох</a></li>
+        </ul>
+        <div class="nav-cta"><a href="#shop">Shop now</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Clothing brand • Ulaanbaatar</div>
+        <h1 class="hero-title">
+          Streetwear <span>made in Mongolia</span> since 2022
+        </h1>
+        <p class="hero-desc">
+          SADCREAM бол Улаанбаатарт төрсөн dark streetwear брэнд. Skeleton
+          эстетик, oversize силуэт, limited drop концепцоороо ялгардаг.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#shop" class="btn btn-primary">Shop collection</a>
+          <a href="#visit" class="btn">Visit the store</a>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <strong>10.4K+</strong>
+            Instagram followers
+          </div>
+          <div>
+            <strong>12–8 PM</strong>
+            Open everyday
+          </div>
+          <div>
+            <strong>Made in MN</strong>
+            Local production
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="hero-card">
+          <div>
+            <div class="hero-logo-circle">
+              <span>☠</span>
+            </div>
+            <div class="hero-tag">Drop 2025 • Preview</div>
+            <h2>SADCREAM</h2>
+            <p>
+              Oversize skeleton hoodies, tees and accessories for the
+              alternative crowd of Ulaanbaatar.
+            </p>
+          </div>
+          <div class="hero-card-footer">
+            <div class="pill">Unisex • Limited</div>
+            <div class="hero-drop">
+              <span>Next drop</span>
+              <strong>COMING SOON</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Дэлгүүр</h2>
+        <p class="section-subtitle">
+          Skeleton aesthetic-тэй hoodie, t-shirt, accessory зэрэг бүтээгдэхүүнүүд.
+          Доорх нь жишээ бүтээгдэхүүний карт – жинхэнэ зураг, үнэ, тайлбараа хожим
+          солино.
+        </p>
+      </div>
+
+      <div class="filters">
+        <button class="chip active">All</button>
+        <button class="chip">Hoodies</button>
+        <button class="chip">T-shirts</button>
+        <button class="chip">Accessories</button>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <article class="product-card">
+          <div class="product-image">
+            <div class="product-tag">New</div>
+            <!-- Энд бүтээгдэхүүний зураг оруулна -->
+            ☠
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Skeleton Hoodie v1</h3>
+            <div class="product-price">₮000,000</div>
+          </div>
+          <div class="product-meta">
+            <span>Size: S–XL</span>
+            <span>Unisex</span>
+          </div>
+          <a href="#contact" class="product-btn">Order via DM</a>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="product-card">
+          <div class="product-image">
+            <div class="product-tag">Drop</div>
+            ☠
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Sad Tee – Black</h3>
+            <div class="product-price">₮000,000</div>
+          </div>
+          <div class="product-meta">
+            <span>Size: S–XL</span>
+            <span>100% cotton</span>
+          </div>
+          <a href="#contact" class="product-btn">Order via DM</a>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="product-card">
+          <div class="product-image">
+            <div class="product-tag">Limited</div>
+            ☠
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Zip Hoodie – Cream</h3>
+            <div class="product-price">₮000,000</div>
+          </div>
+          <div class="product-meta">
+            <span>Size: M–XL</span>
+            <span>Limited 50 pcs</span>
+          </div>
+          <a href="#contact" class="product-btn">Order via DM</a>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="product-card">
+          <div class="product-image">
+            <div class="product-tag">Accessory</div>
+            ☠
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Sadcream Cap</h3>
+            <div class="product-price">₮000,000</div>
+          </div>
+          <div class="product-meta">
+            <span>One size</span>
+            <span>Adjustable</span>
+          </div>
+          <a href="#contact" class="product-btn">Order via DM</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Брэндийн тухай</h2>
+        <p class="section-subtitle">
+          SADCREAM бол 2022 оноос эхэлсэн Улаанбаатарын streetwear брэнд. Хүний
+          ясны график, dark минимал өнгө болон oversize силуэт нь үндсэн
+          identity нь.
+        </p>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            “Made in Mongolia since 2022” – бүх бүтээгдэхүүн Монголдоо
+            үйлдвэрлэгддэг. Залуусын alternative соёлыг илэрхийлэх, өдөр тутмын
+            streetwear-ийг илүү чанартай, өвөрмөц болгох зорилготой.
+          </p>
+          <p>
+            Брэндийн нэр болон skeleton логонууд нь дотоод мэдрэмж, эмзэг байдал,
+            хүчтэй байдлыг зэрэг илэрхийлнэ. Каталог нь ихэвчлэн limited drop
+            байдлаар гардаг тул хэмжээгээрээ ховор, дахин давтагдашгүй.
+          </p>
+
+          <div class="about-highlight">
+            <div class="about-pill">
+              <span>Value</span>
+              Local production, high-quality fabric, small-batch printing.
+            </div>
+            <div class="about-pill">
+              <span>Style</span>
+              Dark, minimal, skeleton-inspired silhouettes for everyday wear.
+            </div>
+            <div class="about-pill">
+              <span>Community</span>
+              10K+ дагагчтай соёлын жижиг community-г бий болгон өсгөж байна.
+            </div>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <h3>Timeline</h3>
+          <div class="about-timeline">
+            <div><strong>2022</strong> – Брэнд үүсгэн байгуулагдав.</div>
+            <div><strong>2023</strong> – Эхний skeleton hoodie drop.</div>
+            <div><strong>2024</strong> – Instagram 10K follower хүрэв.</div>
+            <div><strong>2025+</strong> – Онлайн дэлгүүр, олон улсын хүргэлт.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Дэлгүүрт ирэх</h2>
+        <p class="section-subtitle">
+          Доорх газрын зураг дээрх байршлаар өдөр бүр 12:00–20:00 цагийн
+          хооронд үйлчилж байна. Жинхэнэ координатыг Google Maps-ийн embed линкээр
+          солиод ашиглаарай.
+        </p>
+      </div>
+
+      <div class="visit-layout">
+        <div class="visit-map">
+          <!-- ЭНД ЖИНХЭНЭ GOOGLE MAPS EMBED ЛИНКЭЭ ОРУУЛ -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600.0000000000005!2d106.9000000!3d47.9200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3ASADCREAM!2sSADCREAM%20Store!5e0!3m2!1sen!2smn!4v0000000000000"
+            width="100%"
+            height="340"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="visit-info">
+          <p>
+            Хаяг нь Instagram-ийн био дээр байрласан
+            <strong>maps.app.goo.gl</strong> линкээр баталгаажна. Дэлгүүрийн дотор
+            орчин нь minimal dark aesthetic-тэй, бүтээгдэхүүнүүдийг drop-оор
+            байрлуулдаг.
+          </p>
+
+          <div class="visit-grid">
+            <div class="visit-box">
+              <span>Ажлын цаг</span>
+              Open everyday 12:00 – 20:00
+            </div>
+            <div class="visit-box">
+              <span>Hotline</span>
+              9446-1766<br>
+              8885-8168
+            </div>
+            <div class="visit-box">
+              <span>Follow</span>
+              <a href="https://instagram.com/sadcream_mongolia" target="_blank">@sadcream_mongolia</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Холбогдох</h2>
+        <p class="section-subtitle">
+          Онлайн захиалга өгөх, collaboration санал болгох эсвэл ердөө
+          асуулт асуух бол доорх формыг ашиглах эсвэл Instagram DM-ээр холбогдоно
+          уу.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-list">
+          <div class="contact-item">
+            <span>Утас</span>
+            9446-1766 / 8885-8168
+          </div>
+          <div class="contact-item">
+            <span>И-мэйл</span>
+            info@sadcream.mn
+          </div>
+          <div class="contact-item">
+            <span>Instagram</span>
+            <a href="https://instagram.com/sadcream_mongolia" target="_blank">@sadcream_mongolia</a>
+          </div>
+          <div class="contact-item">
+            <span>DM захиалга</span>
+            Hoodie, tee-гийн нэр, хэмжээ, тоо ширхэгээ бичиж илгээнэ.
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-row">
+            <div>
+              <label for="name">Нэр</label>
+              <input id="name" type="text" placeholder="Таны нэр">
+            </div>
+            <div>
+              <label for="phone">Утас</label>
+              <input id="phone" type="tel" placeholder="xxxx-xxxx">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="email">И-мэйл</label>
+              <input id="email" type="email" placeholder="name@example.com">
+            </div>
+            <div>
+              <label for="subject">Сэдэв</label>
+              <input id="subject" type="text" placeholder="Hoodie order, collab…">
+            </div>
+          </div>
+          <div>
+            <label for="message">Мессеж</label>
+            <textarea id="message" placeholder="Захиалгын дэлгэрэнгүй эсвэл асуултаа бичнэ үү."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Илгээх (Demo)</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 SADCREAM — Made in Mongolia.</div>
+      <div class="footer-links">
+        <a href="#home">Нүүр</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">Brand</a>
+        <a href="#visit">Visit</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("nav");
+
+    navToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
